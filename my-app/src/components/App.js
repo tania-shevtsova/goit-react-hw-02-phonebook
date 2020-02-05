@@ -24,6 +24,7 @@ class App extends Component {
     this.setState({
       [number]: e.target.value
     });
+
   };
 
   handleSubmit = e => {
@@ -40,6 +41,17 @@ class App extends Component {
       return;
     }
 
+    if(this.state.name===""){
+      alert("Please, enter a name!")
+      return;
+    }
+
+    if(this.state.number===""){
+      alert("Please, enter a phone number!")
+      return;
+    }
+
+
     // let handleNum=this.handleChangeNumber();
     // if(e.target.value===""){
     //   console.log('hmmm')
@@ -55,7 +67,8 @@ class App extends Component {
       contacts: [...prev.contacts, object]
     }));
 
-    this.setState({ name: "", number: "" });
+    e.target.reset();
+    this.setState({ name: "" });
   };
 
   getValueFromForm = value => {
