@@ -15,7 +15,6 @@ class App extends Component {
     const name = e.target.name;
 
     this.setState({ [name]: e.target.value });
-    
   };
 
   handleChangeNumber = e => {
@@ -24,39 +23,30 @@ class App extends Component {
     this.setState({
       [number]: e.target.value
     });
-
   };
 
   handleSubmit = e => {
     e.preventDefault();
-  
 
     if (
       this.state.contacts.find(
-        el => el.name.toLowerCase() === this.state.name.toLowerCase(),
+        el => el.name.toLowerCase() === this.state.name.toLowerCase()
       )
     ) {
       alert(`${this.state.name} already exists in your contact list`);
-      this.setState({ name: ""});
+      this.setState({ name: "" });
       return;
     }
 
-    if(this.state.name===""){
-      alert("Please, enter a name!")
+    if (this.state.name === "") {
+      alert("Please, enter a name!");
       return;
     }
 
-    if(this.state.number===""){
-      alert("Please, enter a phone number!")
+    if (this.state.number === "") {
+      alert("Please, enter a phone number!");
       return;
     }
-
-
-    // let handleNum=this.handleChangeNumber();
-    // if(e.target.value===""){
-    //   console.log('hmmm')
-    // }
-    
 
     const object = {
       id: uuid(),
@@ -68,7 +58,7 @@ class App extends Component {
     }));
 
     e.target.reset();
-    this.setState({ name: "", number: ""});
+    this.setState({ name: "", number: "" });
   };
 
   getValueFromForm = value => {
@@ -91,12 +81,11 @@ class App extends Component {
     );
   };
 
-  handleDelete=({id})=>{
-    this.setState(prev=>({
-      contacts: prev.contacts.filter(el=>el.id!==id)
-    }))
-  
-  }
+  handleDelete = ({ id }) => {
+    this.setState(prev => ({
+      contacts: prev.contacts.filter(el => el.id !== id)
+    }));
+  };
 
   render() {
     const filteredNames = this.inputFilter(
