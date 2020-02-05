@@ -68,7 +68,7 @@ class App extends Component {
     }));
 
     e.target.reset();
-    this.setState({ name: "" });
+    this.setState({ name: "", number: ""});
   };
 
   getValueFromForm = value => {
